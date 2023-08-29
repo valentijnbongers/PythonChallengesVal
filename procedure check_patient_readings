@@ -1,0 +1,32 @@
+MIN_TEMP <- 31.6       
+MAX_TEMP <- 37.2
+MIN_PULSE <- 55.0
+MAX_PULSE <- 100.0
+Patient["name1", "name2", "name3", "name4"]
+Readings[[33, 62], [21, 72], [32, 110], [30, 45]]
+
+PROCEDURE check_patient_readings(hospital_number)
+  
+  IF hospital_number < 1 OR hospital_number > 1000 THEN
+    OUTPUT "ERROR: invalid hospital number"
+    RETURN
+  ENDIF
+
+  patient_name = Patient[hospital_number]
+  temperature = Readings[hospital_number][1]
+  pulse = Readings[hospital_number][2]
+
+  bad_temp = temperature < MIN_TEMP OR temperature > MAX_TEMP
+  bad_pulse = pulse < MIN_PULSE OR pulse > MAX_PULSE
+
+  OUTPUT "Patient: " + patient_name
+
+  IF NO bad_temp AND NOT bad_pulse THEN
+    OUTPUT "Normal readings"
+  ELSEIF bad_temp AND NOT bad_pulse THEN
+    OUTPUT "Warning: temperature out of range"
+  ELSEIF bad_pulse AND NOT bad_temp THEN
+    OUTPUT "Warning: pulse out of range"
+  ELSEIF bad_pulse AND bad_temp THEN
+    OUTPUT "severe warning: temperature and pulse out of range"
+ENDPROCEDURE
