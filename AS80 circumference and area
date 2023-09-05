@@ -1,0 +1,10 @@
+def circ_calc (radius):
+  circumference = 2*3.1415*radius
+  print("the circumference is ", circumference)
+
+def area_calc(radius):
+  area = 3.1415*(radius)**2
+  print("the area is ", area)
+
+circ_calc(5)
+area_calc(5)
