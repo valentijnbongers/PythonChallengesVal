@@ -1,0 +1,5 @@
+input = input("enter a char: ")
+if len(input) == 1:
+  print("valid")
+else:
+  print("invalid data type")
