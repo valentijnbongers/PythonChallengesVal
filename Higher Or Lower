@@ -1,0 +1,31 @@
+def deposit():
+  ValidDeposit = False
+  Balance = 0
+  amount = 0
+  while ValidDeposit == False:
+    amount = float(input("Enter amount to deposit($1-100): "))
+    if (type(amount) != float) and type(amount != int):
+      print("Please enter a number")
+    elif amount >= 1 and amount <= 100:
+      ValidDeposit = True
+    else:
+      print("Please enter an amount between $1 and $100")
+  Balance = Balance + amount
+  print(amount, "has been deposited")
+  print("your balance is", Balance)
+  return Balance
+
+def withdrawl(Balance):
+  ValidWithdrawl = False
+  Withdrawn = 0
+  while ValidWithdrawl == False:
+    Withdrawn = float(input("Enter amount to withdrawl: "))
+    if type(Withdrawn) != float and type(Withdrawn) != int:
+      print("Not a number")
+    elif Withdrawn > Balance:
+      print("Not enough money in account")
+    else:
+      ValidWithdrawl = True
+      Balance = Balance - Withdrawn
+
+WORK IN PROGRESS
