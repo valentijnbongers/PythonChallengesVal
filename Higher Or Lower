@@ -28,4 +28,18 @@ def withdrawl(Balance):
       ValidWithdrawl = True
       Balance = Balance - Withdrawn
 
-WORK IN PROGRESS
+def game():
+  import random
+  number = random.randint(1, 100)
+  print(f"First random number: {number}")
+
+  guess = input("Next number will be: higher(1), lower(2), equal to(3). ").lower()
+
+  next_number = random.randint(1, 100)
+
+  print(f"Next random number: {next_number}")
+
+  if (guess == '1' and next_number > number) or (guess == '2' and next_number < number):
+      print("You guessed correctly.")
+  else:
+      print("You guessed incorrectly.")
